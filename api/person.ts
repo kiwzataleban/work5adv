@@ -35,11 +35,10 @@ router.get("/:personname",(req,res)=>{
 router.post("/insert", (req, res) => {
     let person: PersonGet = req.body;
     let sql =
-      "INSERT INTO `person`(`name`, `Born`, `imgp`, `bio`) VALUES (?,?,?,?)";
+      "INSERT INTO `person`(`name`, `Born`,  `bio`) VALUES (?,?,?)";
     sql = mysql.format(sql, [
         person.name,
         person.Born,
-        person.imgp,
         person.bio,
     ]);
     conn.query(sql, (err, result) => {
